@@ -1,0 +1,34 @@
+
+the script looks like the following:
+ where "rmtuser" is the ssh remote user name.
+       "toprk18dir" is where the build container was created and mounted. 
+
+
+
+#!/bin/bash
+
+function rsync_out_source() {
+  rsync -rtlv --exclude='.git'  ./rknpu/ rmtuser:toprk18dir/rk18buildroot/external/rknpu/
+
+  echo -n 'docker exec -i rk18builder bash -c "cd; cd rk18buildroot; '   >  tmp-rmt-build-npu
+  echo -n './build.sh external/isp2-ipc && '                             >> tmp-rmt-build-npu
+  echo    'cp -urv buildroot/output/rockchip_rk1808/oem/usr/local/test/rknpu/mobilenetv1 ~/sharedfiles/"' >> tmp-rmt-build-npu
+  rsync -tv tmp-rmt-build-npu rmtuser:
+}
+
+function remote_build() {
+  ssh rmtuser "sh tmp-rmt-build-npu"
+}
+
+
+rsync_out_source
+
+tm1=`date +%s`
+  remote_build
+rc=$?
+tm2=`date +%s`
+tdif=$(( $tm2 - $tm1 ))
+echo; echo rc $rc time used $tdif seconds
+
+
+
