@@ -1,0 +1,27 @@
+
+$ git checkout -b split-source
+Switched to a new branch 'split-source'
+
+$ mkdir source-split
+
+$ mv v1.6.1.tar.gz source-split
+
+$ cd source-split
+
+
+$ sha256sum v1.6.1.tar.gz > readme-sum-sha256
+
+$ split -b 80M v1.6.1.tar.gz
+
+$ ls -l
+-rw-rw-r--+   194973793 Aug  8 00:30 v1.6.1.tar.gz
+-rw-rw-r--+         148 Aug  8 10:01 readme-split-commands
+-rw-rw-r--+          80 Aug  8 10:02 readme-sum-sha256
+-rw-rw-r--+    83886080 Aug  8 10:03 xaa
+-rw-rw-r--+    83886080 Aug  8 10:03 xab
+-rw-rw-r--+    27201633 Aug  8 10:03 xac
+
+$ sha256sum xa* > readme-sums-sha256-split
+
+
+
