@@ -1,0 +1,20 @@
+
+$ wget https://github.com/rockchip-linux/rknn-toolkit/archive/refs/tags/v1.6.1.tar.gz
+--2021-08-08 00:28:03--  https://github.com/rockchip-linux/rknn-toolkit/archive/refs/tags/v1.6.1.tar.gz
+Resolving github.com (github.com)... 140.82.114.4
+Connecting to github.com (github.com)|140.82.114.4|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/rockchip-linux/rknn-toolkit/tar.gz/refs/tags/v1.6.1 [following]
+--2021-08-08 00:28:04--  https://codeload.github.com/rockchip-linux/rknn-toolkit/tar.gz/refs/tags/v1.6.1
+Resolving codeload.github.com (codeload.github.com)... 140.82.112.9
+Connecting to codeload.github.com (codeload.github.com)|140.82.112.9|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: ‘v1.6.1.tar.gz’
+
+v1.6.1.tar.gz                                  [                                                                           <=>        ] 185.94M  1.13MB/s    in 2m 47s
+
+2021-08-08 00:30:52 (1.11 MB/s) - ‘v1.6.1.tar.gz’ saved [194973793]
+
+
+
